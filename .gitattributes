@@ -1,0 +1,8 @@
+# Normalize line endings for text files.
+* text=auto
+
+# Compressed test data is binary. It is small, so it is stored directly rather than in Git LFS:
+# cloning this sample must not require Git LFS.
+*.zip binary
+*.Zip binary
+*.ZIP binary
