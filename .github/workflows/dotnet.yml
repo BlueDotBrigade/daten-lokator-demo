@@ -1,0 +1,33 @@
+name: .NET
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+  workflow_dispatch: # Allows manual triggering
+
+jobs:
+  build:
+
+    permissions:
+      contents: read
+
+    strategy:
+      matrix:
+        os: [windows-latest, ubuntu-latest]
+
+    runs-on: ${{ matrix.os }}
+
+    steps:
+    - uses: actions/checkout@v4
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: 9.0.x
+    - name: Restore dependencies
+      run: dotnet restore DatenLokator-Demo.sln
+    - name: Build
+      run: dotnet build DatenLokator-Demo.sln --no-restore
+    - name: Test
+      run: dotnet test DatenLokator-Demo.sln --no-build --verbosity normal
