@@ -26,7 +26,7 @@ The tests in [`XmlSerializerTests.cs`](Tst/DemoTests/Serialization/XmlSerializer
 
 ## Getting started
 
-Install the .NET 9 SDK (or later), then:
+Install the .NET 10 SDK (or later), then:
 
 ```bash
 dotnet test DatenLokator-Demo.sln
